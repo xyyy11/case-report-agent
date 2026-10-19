@@ -1,0 +1,30 @@
+# Copy to .github/workflows/daily-report.yml to run the agent on a schedule.
+#
+# Before enabling:
+#   1. Commit your own config/sources.json (see config/sources.example.json).
+#   2. Add repository secrets: OPENAI_API_KEY, DINGTALK_WEBHOOK, DINGTALK_SECRET, FEISHU_WEBHOOK
+#      (only the ones you use).
+#   3. Add a repository variable ENABLE_DAILY_REPORT=true. Until then the job is skipped.
+name: daily-report
+
+on:
+  schedule:
+    - cron: "0 1 * * *"   # 01:00 UTC = 09:00 Asia/Shanghai
+  workflow_dispatch:
+
+jobs:
+  report:
+    if: ${{ vars.ENABLE_DAILY_REPORT == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci
+      - run: node src/cli.js run --config config/sources.json
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          DINGTALK_WEBHOOK: ${{ secrets.DINGTALK_WEBHOOK }}
+          DINGTALK_SECRET: ${{ secrets.DINGTALK_SECRET }}
+          FEISHU_WEBHOOK: ${{ secrets.FEISHU_WEBHOOK }}

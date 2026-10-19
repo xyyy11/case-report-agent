@@ -1,0 +1,23 @@
+[
+  {
+    "id": "ai-products",
+    "name": "AI Product Cases",
+    "type": "rss",
+    "url": "https://example.com/rss.xml",
+    "keywords": ["agent", "automation", "ai product", "workflow"]
+  },
+  {
+    "id": "manual-cases",
+    "name": "Manual Case Backlog",
+    "type": "manual",
+    "items": [
+      {
+        "title": "Example case: automated lead report",
+        "url": "https://example.com/case",
+        "summary": "A sample case used to test the report pipeline.",
+        "tags": ["agent", "report", "automation"]
+      }
+    ]
+  }
+]
+

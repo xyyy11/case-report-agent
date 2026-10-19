@@ -1,0 +1,21 @@
+[
+  {
+    "id": "manual-cases",
+    "name": "Manual Case Backlog",
+    "type": "manual",
+    "items": [
+      {
+        "title": "Case report agent: from source collection to team push",
+        "url": "https://github.com/xyyy11/case-report-agent",
+        "summary": "An end-to-end report agent covering source collection, relevance scoring, AI summarization, Markdown reports and DingTalk / Feishu push.",
+        "tags": ["agent", "report", "automation", "push"]
+      },
+      {
+        "title": "Example: weekly automated digest of workflow case studies",
+        "url": "https://example.com/weekly-digest",
+        "summary": "A sample case showing how an agent can collect, filter and summarize workflow automation case studies into a weekly team report.",
+        "tags": ["agent", "workflow", "automation", "report"]
+      }
+    ]
+  }
+]
